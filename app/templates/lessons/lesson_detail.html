@@ -1,27 +1,22 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
+{% load markdown_tags %}
 
 {% block head_title %}
 
 {% endblock head_title %}
 
-
 {% block content %}
 <div class="my-5 py-5">
 
   <div class="py-5">
-    <div class="card"
-      style="width: 18rem;">
-      <img src="{{ object.image.url }}"
-        class="card-img-top"
-        alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{object.title}}</h5>
-        <p class="card-text">{{object.description}}</p>
-        <a href="{{object.get_absolute_url}}"
-          class="btn btn-primary">More</a>
-      </div>
-    </div>
+    <h1>{{object.title}}</h1>
+    <span>{{object.updated_at|naturaltime}}</span>
+    <hr>
+    <p>{{object.description}}</p>
+    <p>{{object.instructions | markdown | safe}}</p>
+    <hr>
   </div>
 </div>
 {% endblock content %}

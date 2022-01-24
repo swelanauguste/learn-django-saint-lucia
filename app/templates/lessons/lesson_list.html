@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load humanize %}
 
 {% block head_title %}
 
@@ -8,26 +9,37 @@
 
 {% block content %}
 <div class="my-5 py-5">
-    <p>My name is <a class="text-decoration-none text-dark"
-            href="https://ksslu.com/"
-            target="_blank">Swelan Auguste</a> and I taught myself Django and
-        now I want to
-        teach you</p>
-        <hr>
-        
-        {% for lesson in object_list %}
-          
-        <div class="py-5">
-            <div class="card" style="width: 18rem;">
-                <img src="{{ lesson.image.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{lesson.title}}</h5>
-                  <p class="card-text">{{lesson.description}}</p>
-                  <a href="{{lesson.get_absolute_url}}" class="btn btn-primary">More</a>
-                </div>
-              </div>
+  <p>My name is <a class="text-decoration-none text-dark"
+      href="https://ksslu.com/"
+      target="_blank">Swelan Auguste</a> and I taught myself Django and
+    now I want to
+    teach you</p>
+  <hr>
+
+  {% for lesson in object_list %}
+
+  <div class="py-5">
+    <div class="card"
+      style="width: 18rem;">
+      <img src="{{ lesson.image.url }}"
+        class="card-img-top"
+        alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{lesson.title}}</h5>
+        <p class="card-text">{{lesson.description}}</p>
+        <div class="mt-5 text-end">
+          <a href="{{lesson.get_absolute_url}}"
+            class="btn btn-outline-dark px-5">More</a>
         </div>
-        {% endfor %}
+        <hr>
+        <p class="card-text text-muted small text-center">updated
+          {{lesson.updated_at|naturaltime}}</p>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <h1 class="text-center my-5 py-5">No lessons found.</h1>
+  {% endfor %}
 
 </div>
 {% endblock content %}
