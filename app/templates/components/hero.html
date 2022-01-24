@@ -1,0 +1,40 @@
+<section id="hero"
+    class="container my-5 py-5">
+    <div
+        class="row p-4 pb-5 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 col-md-12 p-3 p-lg-5 pt-lg-3">
+            <p class="display-4">Learn <a
+                    class="text-decoration-none text-dark"
+                    href="/">Django</a>, the Web Framework </p>
+            <p class="display-4 fw-bold">Saint Lucia</p>
+            <p class="lead">Django is a high-level Python web framework that
+                encourages rapid development and clean, pragmatic design. Built
+                by experienced developers, it takes care of much of the hassle
+                of web development, so you can focus on writing your app
+                without needing to reinvent the wheel. It’s free and open
+                source.</p>
+
+            {% if request.user.is_anonymous %}
+            <div id="btn"
+                class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <a type="button"
+                    href="{% url 'account_signup' %}"
+                    class="btn btn-outline-dark btn-lg px-4 me-md-2 fw-bold">Register</a>
+                <a type="button"
+                    href="{% url 'account_login' %}"
+                    class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">Login</a>
+                <!-- <button type="button"
+                    class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
+            </div>
+            {% endif %}
+
+        </div>
+        <div
+            class="col-lg-4 col-12 offset-lg-1 p-5 mb-lg-0 mb-5 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3"
+                src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210907183436/Why-Django-Framework-is-Best-For-Web-Development.png"
+                alt=""
+                width="720">
+        </div>
+    </div>
+</section>

@@ -1,0 +1,90 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+html, body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type=text] {
+    background-color :#F8F9FA; 
+    border: 0;
+    border-bottom: #000000 solid 1px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+input[type=email] {
+    background-color : #F8F9FA; 
+    border: 0;
+    border-bottom: #000000 solid 1px;
+    border-radius: 0;
+    box-shadow: none;
+    border-color: inherit;
+  }
+
+  input[type=password] {
+    background-color : #F8F9FA; 
+    border: 0;
+    border-bottom:#000000 solid 1px;
+    border-radius: 0;
+  }
+
+  input[type=password]:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+
+}
+  input[type=text]:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+
+}
+  input[type=email]:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+.messages {
+    position: absolute;
+    right: 5rem;
+    top: 5rem;
+    z-index: 1;
+    -webkit-animation: cssAnimation 1.7s forwards;
+    animation: cssAnimation 1.7s forwards;
+}
+
+@keyframes cssAnimation {
+    0% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
+
+@-webkit-keyframes cssAnimation {
+    0% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
