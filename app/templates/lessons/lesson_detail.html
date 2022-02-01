@@ -2,6 +2,7 @@
 
 {% load humanize %}
 {% load markdown_tags %}
+{% load hitcount_tags %}
 
 {% block head_title %}
 
@@ -9,14 +10,15 @@
 
 {% block content %}
 <div class="my-5 py-5">
-
   <div class="py-5">
     <h1>{{object.title}}</h1>
-    <span>{{object.updated_at|naturaltime}}</span>
     <hr>
     <p>{{object.description}}</p>
+    <div class="my-3 mb-5 text-muted text-start small">
+      <span>Updated {{object.updated_at|naturaltime}}</span>
+      <p>View{{ hitcount.total_hits|pluralize }} {{ hitcount.total_hits }}</p>
+    </div>
     <p>{{object.instructions | markdown | safe}}</p>
-    <hr>
   </div>
 </div>
 {% endblock content %}

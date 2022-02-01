@@ -9,37 +9,38 @@
 
 {% block content %}
 <div class="my-5 py-5">
-  <p>My name is <a class="text-decoration-none text-dark"
+  <p>My name is <a
+      class="text-decoration-none text-dark my-name"
       href="https://ksslu.com/"
       target="_blank">Swelan Auguste</a> and I taught myself Django and
     now I want to
     teach you</p>
   <hr>
-
-  {% for lesson in object_list %}
-
   <div class="py-5">
-    <div class="card"
-      style="width: 18rem;">
-      <img src="{{ lesson.image.url }}"
-        class="card-img-top"
-        alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{lesson.title}}</h5>
-        <p class="card-text">{{lesson.description}}</p>
-        <div class="mt-5 text-end">
-          <a href="{{lesson.get_absolute_url}}"
-            class="btn btn-outline-dark px-5">More</a>
-        </div>
-        <hr>
-        <p class="card-text text-muted small text-center">updated
-          {{lesson.updated_at|naturaltime}}</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for lesson in object_list %}
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="{{ lesson.get_absolute_url }}">
+          <div class="card shadow"
+            style="width: 18rem;">
+            <img src="{{ lesson.image.url }}"
+              class="card-img-top"
+              alt="...">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{lesson.title}}</h5>
+              <p class="card-text">{{lesson.description}}.</p>
+            </div>
+            <hr>
+            <div class="my-3 px-3">
+              <p class="card-text text-muted small text-end">Updated
+                {{lesson.updated_at|naturaltime}}</p>
+            </div>
+          </div>
+        </a>
       </div>
+      {% empty %}
     </div>
+    <h1 class="text-center my-5 py-5">No lessons found.</h1>
+    {% endfor %}
   </div>
-  {% empty %}
-  <h1 class="text-center my-5 py-5">No lessons found.</h1>
-  {% endfor %}
-
-</div>
-{% endblock content %}
+  {% endblock content %}
